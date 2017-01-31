@@ -20,28 +20,34 @@
 ##############################################################################
 
 {
-    'name': 'Multiple EAN13 on products',
-    'version': '1.2',
+    'name': 'Multiple Barcodes on Products',
+    'version': '10.0.1.2.0',
     'author': "Camptocamp,Odoo Community Association (OCA)",
     'maintainer': 'Camptocamp',
     'category': 'Warehouse',
     'complexity': "normal",  # easy, normal, expert
-    'depends': ['base',
-                'product',
-                ],
+    'depends': [
+        'base',
+        'product',
+        'barcodes',
+        'sales_team',
+    ],
     'description': """
-Multiple EAN13 on products
+Multiple Barcodes on Products
 ==========================
 
-Allow Multiple EAN13 on products.
-A list of EAN13 is available for each product with a priority, so a
-main ean13 code is defined.
+Allow Multiple Barcodes on products.
+A list of barcodes is available for each product with a priority, so a
+main barcode is defined.
 """,
     'website': 'http://www.camptocamp.com',
-    'data': ['product_view.xml',
-             'security/ir.model.access.csv',
-             ],
-    'installable': False,
+    'data': [
+        'security/ir.model.access.csv',
+        'views/product_product.xml',
+    ],
+    'installable': True,
+    'pre_init_hook': 'pre_init_hook',
+    'post_init_hook': 'post_init_hook',
     'auto_install': False,
     'license': 'AGPL-3',
 }
