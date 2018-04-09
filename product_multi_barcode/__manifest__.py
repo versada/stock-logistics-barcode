@@ -21,7 +21,7 @@
 
 {
     'name': 'Multiple Barcodes on Products',
-    'version': '11.0.1.2.0',
+    'version': '11.0.1.0.0',
     'author': "Camptocamp,Odoo Community Association (OCA)",
     'maintainer': 'Camptocamp',
     'category': 'Warehouse',
@@ -45,7 +45,7 @@ main barcode is defined.
         'security/ir.model.access.csv',
         'views/product_product.xml',
     ],
-    'installable': False,
+    'installable': True,
     'pre_init_hook': 'pre_init_hook',
     'post_init_hook': 'post_init_hook',
     'auto_install': False,

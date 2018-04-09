@@ -59,17 +59,18 @@ class ProductProduct(models.Model):
         """overwrite the search method in order to search
         on all barcode codes of a product when we search an barcode"""
 
-        if filter(lambda x: x[0] == 'barcode', args):
+        barcode_terms = [x for x in args if x[0] == 'barcode']
+        if barcode_terms:
             # get the operator of the search
-            barcode_operator = filter(lambda x: x[0] == 'barcode', args)[0][1]
+            barcode_operator = barcode_terms[0][1]
             # get the value of the search
-            barcode_value = filter(lambda x: x[0] == 'barcode', args)[0][2]
+            barcode_value = barcode_terms[0][2]
             # search the barcode
             barcode_ids = self.env['product.barcode'].search(
                 [('name', barcode_operator, barcode_value)]).ids
 
             # get the other arguments of the search
-            args = filter(lambda x: x[0] != 'barcode', args)
+            args = [x for x in args if x[0] != 'barcode']
             # add the new criterion
             args += [('barcode_ids', 'in', barcode_ids)]
         return super(ProductProduct, self).search(

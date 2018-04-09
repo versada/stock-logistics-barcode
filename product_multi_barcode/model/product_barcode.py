@@ -20,7 +20,6 @@ class ProductBarcode(models.Model):
         other products when it is not specified"""
         if not vals.get('sequence') and vals.get('product_id'):
             barcodes = self.search([('product_id', '=', vals['product_id'])])
-            vals['sequence'] = 1
-            if barcodes:
-                vals['sequence'] = max([barcode.sequence for barcode in barcodes]) + 1
+            vals['sequence'] = max(
+                (barcode.sequence for barcode in barcodes), default=0) + 1
         return super(ProductBarcode, self).create(vals)
