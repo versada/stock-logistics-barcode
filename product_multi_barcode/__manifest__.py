@@ -34,7 +34,7 @@
     ],
     'description': """
 Multiple Barcodes on Products
-==========================
+=============================
 
 Allow Multiple Barcodes on products.
 A list of barcodes is available for each product with a priority, so a
