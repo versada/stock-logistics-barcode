@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Author:  Author Guewen Baconnier
@@ -45,7 +44,7 @@ main barcode is defined.
         'security/ir.model.access.csv',
         'views/product_product.xml',
     ],
-    'installable': False,
+    'installable': True,
     'pre_init_hook': 'pre_init_hook',
     'post_init_hook': 'post_init_hook',
     'auto_install': False,

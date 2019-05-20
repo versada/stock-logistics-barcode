@@ -10,7 +10,7 @@
                 <form string="Barcodes">
                     <field name="name"/>
                 </form>
-                <tree string="Barcodes">
+                <tree>
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
                 </tree>
